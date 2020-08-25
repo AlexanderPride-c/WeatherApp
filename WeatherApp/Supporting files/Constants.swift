@@ -1,5 +1,5 @@
 //
-//  NetworkingWeatherManager.swift
+//  Constants.swift
 //  WeatherApp
 //
 //  Created by Александр Прайд on 25.08.2020.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-struct NetworkingWeatherManager {
-    
-}
+let apiKey = "a0ea5bf06981db4420fac2d0bd7b391a"
