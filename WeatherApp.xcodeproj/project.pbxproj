@@ -13,6 +13,8 @@
 		2E643D9F24F565FD005E5610 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E643D9D24F565FD005E5610 /* Main.storyboard */; };
 		2E643DA124F56600005E5610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E643DA024F56600005E5610 /* Assets.xcassets */; };
 		2E643DA424F56600005E5610 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E643DA224F56600005E5610 /* LaunchScreen.storyboard */; };
+		2E643DAC24F56718005E5610 /* NetworkingWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E643DAB24F56718005E5610 /* NetworkingWeatherManager.swift */; };
+		2E643DB424F579B7005E5610 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2E643DB324F579B7005E5610 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2E643DA024F56600005E5610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E643DA324F56600005E5610 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E643DA524F56600005E5610 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E643DAB24F56718005E5610 /* NetworkingWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingWeatherManager.swift; sourceTree = "<group>"; };
+		2E643DB324F579B7005E5610 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,9 @@
 		2E643D8B24F565FD005E5610 = {
 			isa = PBXGroup;
 			children = (
+				2E643DB324F579B7005E5610 /* .gitignore */,
 				2E643D9624F565FD005E5610 /* WeatherApp */,
+				2E643DAD24F57364005E5610 /* Supporting files */,
 				2E643D9524F565FD005E5610 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,15 +62,47 @@
 		2E643D9624F565FD005E5610 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				2E643D9724F565FD005E5610 /* AppDelegate.swift */,
-				2E643D9924F565FD005E5610 /* SceneDelegate.swift */,
-				2E643D9B24F565FD005E5610 /* ViewController.swift */,
-				2E643D9D24F565FD005E5610 /* Main.storyboard */,
-				2E643DA024F56600005E5610 /* Assets.xcassets */,
-				2E643DA224F56600005E5610 /* LaunchScreen.storyboard */,
-				2E643DA524F56600005E5610 /* Info.plist */,
+				2E643DB024F573B0005E5610 /* Views */,
+				2E643DAF24F5739C005E5610 /* Models */,
+				2E643DAE24F57386005E5610 /* ViewControllers */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		2E643DAD24F57364005E5610 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				2E643D9724F565FD005E5610 /* AppDelegate.swift */,
+				2E643D9924F565FD005E5610 /* SceneDelegate.swift */,
+				2E643DA024F56600005E5610 /* Assets.xcassets */,
+				2E643DA524F56600005E5610 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		2E643DAE24F57386005E5610 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E643D9B24F565FD005E5610 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2E643DAF24F5739C005E5610 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E643DAB24F56718005E5610 /* NetworkingWeatherManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E643DB024F573B0005E5610 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E643D9D24F565FD005E5610 /* Main.storyboard */,
+				2E643DA224F56600005E5610 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E643DB424F579B7005E5610 /* .gitignore in Resources */,
 				2E643DA424F56600005E5610 /* LaunchScreen.storyboard in Resources */,
 				2E643DA124F56600005E5610 /* Assets.xcassets in Resources */,
 				2E643D9F24F565FD005E5610 /* Main.storyboard in Resources */,
@@ -138,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E643DAC24F56718005E5610 /* NetworkingWeatherManager.swift in Sources */,
 				2E643D9C24F565FD005E5610 /* ViewController.swift in Sources */,
 				2E643D9824F565FD005E5610 /* AppDelegate.swift in Sources */,
 				2E643D9A24F565FD005E5610 /* SceneDelegate.swift in Sources */,
@@ -286,7 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2S52Q5VDX5;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2S52Q5VDX5;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
