@@ -16,6 +16,7 @@
 		2E643DAC24F56718005E5610 /* NetworkWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E643DAB24F56718005E5610 /* NetworkWeatherManager.swift */; };
 		2E643DB424F579B7005E5610 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2E643DB324F579B7005E5610 /* .gitignore */; };
 		2E643DB624F57BA8005E5610 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E643DB524F57BA8005E5610 /* Constants.swift */; };
+		2EDF3CE824F67D9000DDD5EA /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDF3CE724F67D9000DDD5EA /* CurrentWeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2E643DAB24F56718005E5610 /* NetworkWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWeatherManager.swift; sourceTree = "<group>"; };
 		2E643DB324F579B7005E5610 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2E643DB524F57BA8005E5610 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2EDF3CE724F67D9000DDD5EA /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2E643DAB24F56718005E5610 /* NetworkWeatherManager.swift */,
+				2EDF3CE724F67D9000DDD5EA /* CurrentWeatherData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				2E643DB624F57BA8005E5610 /* Constants.swift in Sources */,
 				2E643DAC24F56718005E5610 /* NetworkWeatherManager.swift in Sources */,
+				2EDF3CE824F67D9000DDD5EA /* CurrentWeatherData.swift in Sources */,
 				2E643D9C24F565FD005E5610 /* WeatherViewController.swift in Sources */,
 				2E643D9824F565FD005E5610 /* AppDelegate.swift in Sources */,
 				2E643D9A24F565FD005E5610 /* SceneDelegate.swift in Sources */,

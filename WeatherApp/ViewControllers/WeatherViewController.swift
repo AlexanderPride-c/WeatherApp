@@ -46,7 +46,7 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
     
     // MARK: SearchREsultUpdating
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text)
+        
     }
 }
 
