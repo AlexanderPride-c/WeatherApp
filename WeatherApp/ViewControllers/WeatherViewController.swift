@@ -10,9 +10,12 @@ import UIKit
 
 class WeatherViewController: UIViewController, UISearchResultsUpdating {
 
+    var timer = Timer()
     
-    let networkWeatherManager = NetworkWeatherManager()
+    var networkWeatherManager = NetworkWeatherManager()
     
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var weatherIconImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -25,8 +28,8 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
         
         self.setupNavigationBar()
         
-        networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
-        
+        self.networkWeatherManager.delegate = self
+        self.networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
         
     }
     
@@ -44,9 +47,33 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
         
     }
     
-    // MARK: SearchREsultUpdating
+    // MARK: SearchResultUpdating
     func updateSearchResults(for searchController: UISearchController) {
+        let city = searchController.searchBar.text!
         
+        timer.invalidate()
+        
+        if city != "" {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
+                self.networkWeatherManager.fetchCurrentWeather(forCity: city)
+            })
+        }
+    }
+    
+    func updateInterfaceWith(weather: CurrentWeather) {
+        DispatchQueue.main.async {
+            self.cityLabel.text = weather.cityName
+            self.temperatureLabel.text = weather.temperatureString
+            self.feelsLIkeTemperatureLabel.text = weather.feelsLikeTemperature
+            self.descriptionLabel.text = weather.descriptionWeather
+            self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
+        }
+    }
+}
+
+extension WeatherViewController: NetworkWeatherManagerDelegate {
+    func updateInterface(_: NetworkWeatherManager, with currentWeather: CurrentWeather) {
+        self.updateInterfaceWith(weather: currentWeather)
     }
 }
 
