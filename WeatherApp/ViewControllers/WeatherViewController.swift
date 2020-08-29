@@ -55,6 +55,7 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
         
         if city != "" {
             timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
+                let city = city.split(separator: " ").joined(separator: "%20")
                 self.networkWeatherManager.fetchCurrentWeather(forCity: city)
             })
         }

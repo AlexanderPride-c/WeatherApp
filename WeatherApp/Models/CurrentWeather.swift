@@ -30,7 +30,7 @@ struct CurrentWeather {
         case 500...531: return "cloud.rain.fill"
         case 600...622: return "snow"
         case 701...781: return "smoke.fill"
-        case 800: return "sun.min.fill"
+        case 800: return "sun.min"
         case 801...804: return "cloud.fill"
         default: return "paperplane.fill"
         }
