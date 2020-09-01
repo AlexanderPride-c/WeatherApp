@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController, UISearchResultsUpdating {
 
     var timer = Timer()
     
     var networkWeatherManager = NetworkWeatherManager()
+    private lazy var locationManager: CLLocationManager = {
+        let lm = CLLocationManager()
+        lm.delegate = self
+        lm.desiredAccuracy = kCLLocationAccuracyKilometer
+        lm.requestWhenInUseAuthorization()
+        return lm
+    }()
     
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -29,7 +37,12 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
         self.setupNavigationBar()
         
         self.networkWeatherManager.delegate = self
-        self.networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
+       // self.networkWeatherManager.fetchCurrentWeather(forCity: "Moscow")
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.requestLocation()
+        }
+        
         
     }
     
@@ -56,7 +69,7 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
         if city != "" {
             timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { (timer) in
                 let city = city.split(separator: " ").joined(separator: "%20")
-                self.networkWeatherManager.fetchCurrentWeather(forCity: city)
+                self.networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: city))
             })
         }
     }
@@ -72,9 +85,26 @@ class WeatherViewController: UIViewController, UISearchResultsUpdating {
     }
 }
 
+// MARK: NetworkWeatherManagerDelegate
 extension WeatherViewController: NetworkWeatherManagerDelegate {
     func updateInterface(_: NetworkWeatherManager, with currentWeather: CurrentWeather) {
         self.updateInterfaceWith(weather: currentWeather)
+    }
+}
+
+// MARK: CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        networkWeatherManager.fetchCurrentWeather(forRequestType: .coordinate(latitude: latitude, longitude: longitude))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
 }
 
